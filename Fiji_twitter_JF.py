@@ -1,4 +1,4 @@
-#FIJI TWITTER BOT JF SIX69 NEW
+#FIJI TWITTER BOT JF SIX69 NEW NEW NEW
 
 import tweepy
 import time
@@ -11,7 +11,6 @@ from datetime import datetime, timedelta, timezone
 from dotenv import load_dotenv
 
 load_dotenv()
-
 
 
 fiji_system = """---
