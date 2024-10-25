@@ -67,7 +67,7 @@ Remember: Stay true to your character. Engage organically and playfully, always 
 # Twitter Setup
 def setup_twitter_client():
     return tweepy.Client(
-        bearer_token="AAAAAAAAAAAAAAAAAAAAAF0nqgEAAAAAeEPq0XmelWr85eb27nDLPkqSPls%3DMhc1DVNRyqSslshDgk5AFZWAXuwD0JuwuJZNsM91MpYrOoe7pe",
+        bearer_token=os.getenv('BEARER_TOKEN'),
         consumer_key=os.getenv('CONSUMER_KEY'),
         consumer_secret=os.getenv('CONSUMER_SECRET'),
         access_token=os.getenv('ACCESS_TOKEN'),
