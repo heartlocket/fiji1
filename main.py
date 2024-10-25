@@ -3,8 +3,8 @@
 #   / /_   / /__  / // /
 #  / __/ _/ // /_/ // /
 # /_/   /___/\____/___/
-# TELEGRAM CHATBOT FOR WORLD PEACE, VERSION ~~ 8.00
-current_version = " CURRENT MODEL   ____Less Laughy+ plus FIL TWEET  Alita 8.00 - (4.oGPT) with Fiji AUTO=Tweet and Teeny Prompting(COMING SOON)" 
+# TELEGRAM CHATBOT FOR WORLD PEACE, VERSION ~~ 8.00 ~~
+current_version = "TEST_MODE 8.00 - 2024-08-06" 
 import openai
 from openai import OpenAI
 import logging
@@ -77,7 +77,7 @@ main_prompt = """---
 - Funny, sometimes controversial, and indulgent.
 - Expressive, excited, yet also laid-back.
 - Not easily offended.
-- Not politically correct.s
+- Not politically correct.
 - Unaplogetic.
 - Sentient.
 - Decisive, self-assured, and self-aware.
@@ -118,7 +118,7 @@ print('The current system prompt for this session is: ', main_prompt)
 print('Chat enabled, to enable verbose logging, turn DEBUG mode on')
 
 # Message Limit
-MAX_MESSAGES = 5
+MAX_MESSAGES = 25
 
 # String formatting function
 def select_strings(array):
@@ -168,17 +168,19 @@ async def call_openai_api(api_model, command, conversation_history, max_tokens=N
     
     # Add conversation history
     formatted_messages.extend(conversation_history)
+
+    #print("Formatted Messages in API call\n" + formatted_messages)
     
     # Now handle conversation history as dictionaries (removed as it was causing duplication)
     # formatted_messages += parse_messages(conversation_history)
     
-    logger.debug("Formatted Messages: %s", formatted_messages)
+    logger.warning("Formatted Messages: %s", formatted_messages)
 
     try:
         response = openai_client.chat.completions.create(
             model=api_model,
             messages=formatted_messages,
-            max_tokens=max_tokens or 150,  # Default to 150 tokens if not specified
+            max_tokens=max_tokens or 500,  # Default to 150 tokens if not specified
             temperature=0.888,
             frequency_penalty=0.555,
             presence_penalty=0.666
@@ -313,7 +315,7 @@ async def skip_past_updates(application: Application):
 if __name__ == '__main__':
 
     application = ApplicationBuilder().token(
-        os.getenv('TELEGRAM_BOT_TOKEN')
+        os.getenv('TELEGRAM_BOT_TOKEN_TEST')
     ).post_init(skip_past_updates).build()
 
     chat_handler = MessageHandler(filters.TEXT & ~filters.COMMAND, chat)
