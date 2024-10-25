@@ -1,4 +1,4 @@
-#FIJI TWITTER BOT JF SIX69
+#FIJI TWITTER BOT JF SIX69 NEW
 
 import tweepy
 import time
